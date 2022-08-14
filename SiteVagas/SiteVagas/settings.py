@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'job_convo',
         'USER': 'postgres',
-        'PASSWORD': 'atila402',
+        'PASSWORD': '1234',
         'HOST': 'localhost'
     }
 }
