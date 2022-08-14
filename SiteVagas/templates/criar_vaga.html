@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Criando Vagas</title>
+</head>
+<body>
+    <section>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+
+            <input type="submit" value="Confirmar">
+        </form>
+    </section>
+</body>
+</html>

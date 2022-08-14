@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+{% load dashboard_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaga</title>
+</head>
+<body>
+        <h1>{{ vaga.nome_vaga }}</h1>
+        <br>
+        <h2>Requisitos</h2>
+        <p>{{ vaga.requisitos }}</p>
+        <br>
+        <h3>Faixa Salarial</h3>
+        <p>{{ vaga.salario}}</p>
+        <br>
+        <h3>Escolaridade Mínima</h3>
+        <p>{{vaga.escolaridade_minima}}</p>
+
+        {% if user|has_group:"candidato" %}
+        <a href="{% url 'inscricao' vaga.id %}"><button>Inscrever-se na vaga</button></a>
+        {% endif %}
+
+        {% if vaga.empresa == user %}
+        <a href="{% url 'candidatos_inscritos' vaga.id %}"><button>Ver candidatos da Vaga</button></a>
+        {% endif %}
+</body>
+</html>

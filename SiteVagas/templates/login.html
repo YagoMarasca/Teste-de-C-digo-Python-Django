@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Faça login com o seu usuário</h1>
+    <br>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="usuario">Digite o seu email</label>
+        <input type="email" placeholder="digite o seu email" name="usuario" id="usuario">
+        <br>
+        <label for="senha"> Digite a sua senha</label>
+        <input type="password" name="senha" id="senha">
+        <input type="submit" value="Logar">
+    </form>
+</body>
+</html>

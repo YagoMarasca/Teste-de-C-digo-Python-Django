@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+{% load dashboard_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1> Vagas disponiveis</h1>
+
+            <a href="{% url 'cadastro' %}"> <button>Cadastro</button></a>
+            <a href="{% url 'login' %}"> <button>Login</button></a>
+            <a href="{% url 'logout' %}"> <button>Logout</button></a>
+            {% if user|has_group:"empresa" %}
+            <a href="{% url 'criar_vaga' %}"><button>Criar Nova Vaga</button></a>
+            {% endif %}
+        </div>
+    </header>
+
+    <br><br>
+
+    <section>
+        {% for vaga in vagas %}
+        <div>
+            <a href="{% url 'pag_vaga' vaga.id%}">
+                <div>
+                    <img src="" alt="{{ vaga.empresa.username }}">
+                    <h3>{{ vaga.nome_vaga }}</h3>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </section>
+
+</body>
+</html>
